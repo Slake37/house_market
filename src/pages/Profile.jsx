@@ -29,12 +29,12 @@ function Profile() {
       if(auth.currentUser.displayName !== name){
         //Update displayname in FireBase
         await updateProfile(auth.currentUser,{
-          displayName:name
+          displayName:name,
         })
         //Update in Firestore
         const userRef = doc(db, 'users', auth.currentUser.uid)
         await updateDoc(userRef,{
-          name
+          name,
         })
       }
     } catch (error) {
